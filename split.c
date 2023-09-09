@@ -71,7 +71,7 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 	lines_of = _strtok(input, ";|&");
 	do {
 		lines_of = swap_char(lines_of, 1);
-		add_line_node_end(head_l, line_of);
+		add_line_node_end(head_l, lines_of);
 		line_of = _strtok(NULL, ";|&");
 	} while (line_of != NULL);
 
