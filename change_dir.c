@@ -52,7 +52,7 @@ void cd_dot(data_shell *datash)
 
 /**
  * cd_to - a function that changes to a directory
- *  given by the user.
+ * given by the user.
  * @datash: data_shell.
  * Return: void.
  */
@@ -90,40 +90,41 @@ void cd_to(data_shell *datash)
  * @datash: data_shell.
  * Return: void.
  */
+
 void cd_previous(data_shell *datash)
 {
 	char pwd[PATH_MAX];
-	char *ppwd, *poldpwd, *cppwd, *cpoldpwd;
+	char *p_pwd, *p_oldpwd, *cppwd, *cp_oldpwd;
 
 	getcwd(pwd, sizeof(pwd));
 	cppwd = _strdup(pwd);
 
-	poldpw = _getenv("OLDPWD", datash->_environ);
+	p_oldpwd = _getenv("OLDPWD", datash->_environ);
 
-	if (poldpw == NULL)
-		cpoldpwd = cppwd;
+	if (p_oldpwd == NULL)
+		cp_oldpwd = cppwd;
 	else
-		cpoldpwd = _strdup(poldpw);
+		cp_oldpwd = _strdup(p_oldpwd);
 
 	set_env("OLDPWD", cppwd, datash);
 
-	if (chdir(cpoldpwd) == -1)
+	if (chdir(cp_oldpwd) == -1)
 		set_env("PWD", cppwd, datash);
 	else
-		set_env("PWD", cpoldpwd, datash);
+		set_env("PWD", cp_oldpwd, datash);
 
-	ppwd = _getenv("PWD", datash->_environ);
+	p_pwd = _getenv("PWD", datash->_environ);
 
-	write(STDOUT_FILENO, ppwd, _strlen(ppwd));
+	write(STDOUT_FILENO, p_pwd, _strlen(p_pwd));
 	write(STDOUT_FILENO, "\n", 1);
 
 	free(cppwd);
-	if (poldpw)
-		free(cpoldpwd);
+	if (p_oldpwd)
+		free(cp_oldpwd);
 
 	datash->status = 0;
 
-	chdir(ppwd);
+	chdir(p_pwd);
 }
 
 /**
@@ -134,30 +135,30 @@ void cd_previous(data_shell *datash)
 
 void cd_to_home(data_shell *datash)
 {
-	char *ppwd, *h;
+	char *p_pwd, *home;
 	char pwd[PATH_MAX];
 
 	getcwd(pwd, sizeof(pwd));
-	ppwd = _strdup(pwd);
+	p_pwd = _strdup(pwd);
 
-	h = _getenv("HOME", datash->_environ);
+	home = _getenv("HOME", datash->_environ);
 
-	if (h == NULL)
+	if (home == NULL)
 	{
-		set_env("OLDPWD", ppwd, datash);
-		free(ppwd);
+		set_env("OLDPWD", p_pwd, datash);
+		free(p_pwd);
 		return;
 	}
 
-	if (chdir(h) == -1)
+	if (chdir(home) == -1)
 	{
 		get_error(datash, 2);
-		free(ppwd);
+		free(p_pwd);
 		return;
 	}
 
-	set_env("OLDPWD", ppwd, datash);
-	set_env("PWD", h, datash);
-	free(ppwd);
+	set_env("OLDPWD", p_pwd, datash);
+	set_env("PWD", home, datash);
+	free(p_pwd);
 	datash->status = 0;
 }
