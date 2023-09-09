@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * bring_line - a function that assigns 
+ * bring_line - a function that assigns
  * the line var for get_line
  * @lineptr: a char.
  * @buffer: a char.
@@ -49,7 +49,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	static ssize_t ipt;
 	ssize_t r;
 	char *b;
-	char x= 'z';
+	char x = 'z';
 
 	if (ipt == 0)
 		fflush(stream);
@@ -60,7 +60,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	b = malloc(sizeof(char) * BUFSIZE);
 	if (b == 0)
 		return (-1);
-	while (x!= '\n')
+	while (x != '\n')
 	{
 		i = read(STDIN_FILENO, &t, 1);
 		if (i == -1 || (i == 0 && ipt == 0))

@@ -32,7 +32,7 @@ int get_len(int n)
 /**
  * aux_itoa - a function converts int to string.
  * @n: integer.
- * Return: b or NULL.	
+ * Return: b or NULL.
  */
 
 char *aux_itoa(int n)

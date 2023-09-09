@@ -56,7 +56,7 @@ int check_vars(r_var **h, char *in, char *st, data_shell *data)
 {
 	int i, last, p;
 
-    p = _strlen(data->pid);
+	p = _strlen(data->pid);
 	last = _strlen(st);
 
 	for (i = 0; in[i]; i++)
