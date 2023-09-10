@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * is_cdir - checks ":" checks directory.
+ * is_cdir - checks ":" function checks directory.
  * @path: type char
  * @i: type int pointer
  * Return: 1 ,0 ,-1
