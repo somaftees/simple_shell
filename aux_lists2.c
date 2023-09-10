@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * add_rvar_node - adds var
+ * add_rvar_node - adds var to ls
  * @head: head
  * @lvar: length
  * @val: value
