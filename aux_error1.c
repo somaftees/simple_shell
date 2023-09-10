@@ -3,7 +3,7 @@
 /**
  * strcat_cd - function for the message cd error
  *
- * @datash: data position
+ * @datash: function for data position
  * @msg: message
  * @error: output
  * @ver_str: counter
