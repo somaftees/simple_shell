@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * add_sep_node_end - adds a separator
+ * add_sep_node_end - adds a separator node
  * @head: head
  * @sep: separator.
  * Return: address
