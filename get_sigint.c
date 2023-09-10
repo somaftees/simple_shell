@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_sigint - Handle the crtl + c
+ * get_sigint - to Handle the crtl + d
  * @sig: Signal
  */
 void get_sigint(int sig)
