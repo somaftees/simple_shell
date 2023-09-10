@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * exec_line - finds
+ * exec_line - function finds line
  * @datash: data information
  * Return: 1 when cool
  */
