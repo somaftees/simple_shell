@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strcat - concatenate
+ * _strcat - concatenate str
  * @dest: char pointer
  * @src: const char
  * Return: the dest
