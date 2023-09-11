@@ -4,23 +4,23 @@ B.\"Manpage for simple shell"
 .TH alxshell "sep 2023" "alx" "alx SHELL - Simple Shell man page"
 
 .SH NAME
-sodash\fR \- simple UNIX command interpreter
+hsh\fR \- simple UNIX command interpreter
 
 .SH SYNOPSIS
-soda\fR [\fIfilename\fR]
+hsh\fR [\fIfilename\fR]
 
 .SH COPYRIGHT
-soda is Copyright (C) 2023 by Retag fathi and Tasnim Ftees
+hsh is Copyright (C) 2023 by Retag fathi and Tasnim Ftees
 
 .SH DESCRIPTION
-Soda\fR is a sh-compatible command language interpreter that executes commands read from the standard input or from a file.
+hsh\fR is a sh-compatible command language interpreter that executes commands read from the standard input or from a file.
 
 .SH ARGUMENTS
 If arguments remain after option processing, the first argument is assumed to be the name of a file containing shell commands. Sodash reads and executes commands from this file, then exits. Sodash exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. An attempt is first made to open the file in the current directory, and, if no file is found, then the shell searches the directories in PATH for the script.
 
 .SH INVOCATION
-Sodash is started with the standard input connected to the terminal (as determined by \fIisatty(3)\fR), the interactive mode is executed. Also non-interactively option can be executed.
-When Sodash is executed interactively, the prompt is displayed  \fI^-^ \fR to read any command, the command line argument is invoked and is treated as the first argument.
+hsh is started with the standard input connected to the terminal (as determined by \fIisatty(3)\fR), the interactive mode is executed. Also non-interactively option can be executed.
+When hsh is executed interactively, the prompt is displayed  \fI(&) \fR to read any command, the command line argument is invoked and is treated as the first argument.
 
 .SH DEFINITIONS
 The following definitions are used throughout the rest of this document.
@@ -51,13 +51,13 @@ If the name is neither a shell function nor a builtin, and contains no slashes, 
 If the search is successful, or if the command name contains one or more slashes, the shell executes the named program in a separate execution environment. Argument 0 is set to the name given, and the remaining arguments to the command are set to the arguments given, if any.
 
 .SH Environment
-\fBSodash\fR takes a copy from \fBBash\fR environment of the parent process where it was executed. The environment is an array of strings containing the variables in the format.
+\fBhsh\fR takes a copy from \fBBash\fR environment of the parent process where it was executed. The environment is an array of strings containing the variables in the format.
 When a program is invoked it is given an array of strings called the environment. This is a list of name-value pairs, of the form name=value.
 
 The shell provides several ways to manipulate the environment. On invocation, the shell scans its own environment and creates a parameter for each name found, automatically marking it for export to child processes. Executed commands inherit the environment. The export and declare -x commands allow parameters and functions to be added to and deleted from the environment.
 
 .SH Exit Status
-Sodash\fR exit status of an executed command is the value returned by the waitpid system call or equivalent function. A command which exits with a zero exit status has succeeded. An exit status of zero indicates success. A non-zero exit status indicates failure.
+hsh\fR exit status of an executed command is the value returned by the waitpid system call or equivalent function. A command which exits with a zero exit status has succeeded. An exit status of zero indicates success. A non-zero exit status indicates failure.
 
 If a command is not found, the child process created to execute it returns a status of 127.
 
@@ -92,7 +92,7 @@ The following builtin commands are supported:
 
 .SH SEE ALSO
 access(2), chdir(2), execve(2), _exit(2), exit(3), fflush(3), fork(2), free(3), isatty(3), getcwd(3), malloc(3), open(2), read(2), sh(1), signal(2), stat(2), wait(2), write(2)
-Sodash\fR takes basic functionality of the \fBsh\fR shell. This man page is based on the man page bash(1)
+hsh\fR takes basic functionality of the \fBsh\fR shell. This man page is based on the man page bash(1)
 
 .SH AUTHORS
 Tasnim Ftees and Retag Fathi
